@@ -72,6 +72,18 @@
       <% }%>
         <a class="nav-link" href="/MasInfo"> Más información </a>
       </li>
+
+      <% if (userInfo.Autentificado && userInfo.Es_Admin) { %>
+        <% if(pageType == 'ReservacionesPendientes'){ %>
+          <li class="nav-item active">
+            <% } 
+              else {%>
+                <li class="nav-item">
+            <% }%>
+              <a class="nav-link" href="/ReservacionesPendientes"> Manejar reservaciones </a>
+          </li>
+      <% } %>
+
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <ul class="navbar-nav mr-auto">

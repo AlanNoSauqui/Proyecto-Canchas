@@ -40,6 +40,7 @@ const ErrorMessages = require("./classes/errorMessages.js");
 const CanchasClass = require("./classes/cancha.js");
 const ReservacionesClass = require("./classes/reservacion.js");
 const PeticionesClass = require("./classes/peticionReservacion.js");
+const ReservacionesPendientes = require("./classes/listaPorAprobar.js");
 
 // -----------------------Functions-----------------------
 
@@ -128,6 +129,26 @@ app.post('/Reservaciones/:idCancha', (req, res) =>{
     else{
         res.send(null);
     }  
+});
+
+// Reservaciones
+app.get('/ReservacionesPendientes', (req, res) => {
+    if(req.user){ 
+        if(req.user.Es_Admin){
+            ReservacionesPendientes.getReservacionesPendientes(dbConnection, (listaReservaciones) =>{
+                console.log(listaReservaciones);
+                res.send("Pagina en construccion")
+            })
+            //res.render('pages/reservationsPendientes', { pageType: "ReservacionesPendientes", userInfo: new UserClass.User(req.user) });
+        }
+        else{
+            res.redirect("/OnlyAdmin");
+        }
+    }
+    else{
+        req.session.redirectTo = '/ReservacionesPendientes';
+        res.redirect('/IniciarSesion');
+    } 
 });
 
 // Login
