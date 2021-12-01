@@ -35,6 +35,7 @@ function getReservaciones(idCancha){
         JOIN Usuarios usr on res.ID_Usuario = usr.ID
         WHERE ID_Cancha = ${idCancha} AND
         (Fecha_Inicio BETWEEN '${fechaInicio}' AND '${fechaFin}')
+        AND Aprobada = True
         ORDER BY Fecha_Inicio;`;
 
     return query;
@@ -58,7 +59,8 @@ function checarConflictos(fechaInicio, fechaFin, idCancha){
     FROM Reservaciones
     WHERE Fecha_Inicio < '${fechaFin}'
     AND Fecha_Fin > '${fechaInicio}'
-    AND ID_Cancha = ${idCancha};`;
+    AND ID_Cancha = ${idCancha}
+    AND Aprobada = True;`;
     return query;
 }
 
