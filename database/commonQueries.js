@@ -85,5 +85,25 @@ ORDER BY res.Fecha_Peticion;`;
     return query;
 }
 
+function rechazarReservacion(idReservacion){
+    let query = `
+    DELETE FROM Reservaciones
+    WHERE ID = ${idReservacion};
+    `;
+
+    return query;
+}
+
+function aceptarReservacion(idReservacion){
+    let query = `
+    UPDATE Reservaciones
+SET
+    Aprobada = true
+WHERE ID = ${idReservacion};
+    `;
+
+    return query;
+}
+
 // exports
-module.exports = { getUserFromID, addUser, getCanchaFromID, getReservaciones, insertReservacion, checarConflictos, getRecurrentes, getPendientes};
+module.exports = { getUserFromID, addUser, getCanchaFromID, getReservaciones, insertReservacion, checarConflictos, getRecurrentes, getPendientes, rechazarReservacion};
