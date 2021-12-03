@@ -5,7 +5,7 @@ const queries = require("../database/commonQueries.js");
 
 // Una peticion es el body de un post, y un usuario
 let ReservacionesPendientes = function(sqlReservaciones){
-    this.reservaciones = sqlReservaciones
+    this.reservaciones = sqlReservaciones;
 };
 
 let ResultadoPeticion = function(exito, message){
@@ -14,7 +14,7 @@ let ResultadoPeticion = function(exito, message){
 };
 
 function getReservacionesPendientes(connection, callback){
-    const query = queries.getPendientes()
+    const query = queries.getPendientes();
     connection.query(query, (error, results, fields) => {
         if(error){
             callback( new ReservacionesPendientes([]));
@@ -24,7 +24,7 @@ function getReservacionesPendientes(connection, callback){
     });
 }
 
-function aprobarReservacion(connection, idReservacion, callback){
+function aprobarReservacion(connection, messager, idReservacion, callback){
     const query = queries.getReservacionFromID(idReservacion);
     connection.query(query, (error, results, fields) => {
         if(error){
@@ -51,12 +51,22 @@ function aprobarReservacion(connection, idReservacion, callback){
                 }
                 else{
                     const queryAceptar = queries.aceptarReservacion(idReservacion);
-                    connection.query(queryAceptar, (error, results, fields) => {
+                    connection.query(queryAceptar, (error, results3, fields) => {
                         if(error){
                             callback(new ResultadoPeticion(false, "Hubo un error. Refresque la pagina e intentelo de nuevo 3"));
                         }
                         else{
-                            callback(new ResultadoPeticion(true, "La reservacion ha sido aceptada"));
+                            const data = {
+                                to: '<' + results[0].ID_Usuario +'@up.edu.mx>',
+                                from: 'deportesUP@mail.canchasup.live, deportesUP@mail.canchasup.live',
+                                subject: 'Update: Tu reservacion fue aceptada!',
+                                text: 'Han aceptado tu peticion para usar las canchas de la UP!'
+                            };
+                            messager.messages().send(data, function (error, body) {
+                                callback(new ResultadoPeticion(true, "La reservacion ha sido aceptada"));
+                            });
+
+                            
                         }
                     });
                 }
@@ -66,19 +76,37 @@ function aprobarReservacion(connection, idReservacion, callback){
 
         }
     });
-};
+}
 
-function rechazarReservacion(connection, idReservacion, callback){
-    const query = queries.rechazarReservacion(idReservacion);
-    connection.query(query, (error, results, fields) => {
-        if(error){
+function rechazarReservacion(connection, messager, idReservacion, callback){
+
+    const queryReservacion = queries.getReservacionFromID(idReservacion);
+    connection.query(queryReservacion, (error0, results0, fields) => {
+        if(error0){
             callback(new ResultadoPeticion(false, "Hubo un error. Refresque la pagina e intentelo de nuevo"));
+        }else if(results0.length == 0){
+            callback(new ResultadoPeticion(false, "Hubo un error. Refresque la pagina e intentelo de nuevo"));
+        }else{
+            const query = queries.rechazarReservacion(idReservacion);
+            connection.query(query, (error, results, fields) => {
+                if(error){
+                    callback(new ResultadoPeticion(false, "Hubo un error. Refresque la pagina e intentelo de nuevo"));
+                }
+                else{
+                    const data = {
+                        to: '<' + results0[0].ID_Usuario +'@up.edu.mx>',
+                        from: 'deportesUP@mail.canchasup.live, deportesUP@mail.canchasup.live',
+                        subject: 'Update: Tu reservacion fue rechazada',
+                        text: 'Han rechazado tu peticion para usar las canchas de la UP. Ponte en contacto con el departamento de Deportes para mas informacion'
+                    };
+                    messager.messages().send(data, function (error, body) {
+                        callback(new ResultadoPeticion(true, "La reservacion ha sido eliminada"));
+                    });
+                }
+            });
         }
-        else{
-            callback(new ResultadoPeticion(true, "Reservacion eliminada"));
-        }
-    })
-};
+    });
+}
 
 // exports
 module.exports = {getReservacionesPendientes, rechazarReservacion, aprobarReservacion};

@@ -107,7 +107,7 @@ WHERE ID = ${idReservacion};
 
 function getReservacionFromID(idReservacion){
     let query = `
-    SELECT unix_timestamp(Fecha_inicio) Fecha_inicio, unix_timestamp(fecha_Fin) fecha_Fin, id_cancha FROM Reservaciones
+    SELECT unix_timestamp(Fecha_inicio) Fecha_inicio, unix_timestamp(fecha_Fin) fecha_Fin, id_cancha, ID_Usuario FROM Reservaciones
 Where ID = ${idReservacion};`;
     return query;
 }

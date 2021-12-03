@@ -9,6 +9,9 @@ const passportFactory = require("./database/passportFactory.js");
 const session = require("express-session");
 passportFactory.setupPassport(passport, dbConnection);
 
+// ----------------------Mailgun---------------------------
+const mailgun = require('./database/mailgunFactory.js');
+const messager = mailgun.getTransporter();
 
 // -----------------------Express-----------------------
 const express = require('express');
@@ -139,8 +142,8 @@ app.get('/ReservacionesPendientes', (req, res) => {
         if(req.user.Es_Admin){
             ReservacionesPendientes.getReservacionesPendientes(dbConnection, (listaReservaciones) =>{
                 console.log(listaReservaciones);
-                res.send("Pagina en construccion")
-            })
+                res.send("Pagina en construccion");
+            });
             //res.render('pages/reservationsPendientes', { pageType: "ReservacionesPendientes", userInfo: new UserClass.User(req.user) });
         }
         else{
@@ -158,12 +161,12 @@ app.post('/ReservacionesPendientes', (req, res) => {
     if(req.user){ 
         if(req.user.Es_Admin){
             if(req.body.type == 'aprobar'){
-                ReservacionesPendientes.aprobarReservacion(dbConnection, req.body.idReservacion, (result) => {
+                ReservacionesPendientes.aprobarReservacion(dbConnection, messager,  req.body.idReservacion, (result) => {
                     res.send(result);
                 });
             }
             else if(req.body.type == 'rechazar'){
-                ReservacionesPendientes.rechazarReservacion(dbConnection, req.body.idReservacion, (result) => {
+                ReservacionesPendientes.rechazarReservacion(dbConnection, messager, req.body.idReservacion, (result) => {
                     res.send(result);
                 });
             }else{
