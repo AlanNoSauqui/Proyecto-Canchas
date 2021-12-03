@@ -122,6 +122,8 @@ app.post('/Reservaciones/:idCancha', (req, res) =>{
                         res.send(resultado);
                     });
                 
+                }else{
+                    res.send(null);
                 }
             }
         });
@@ -152,24 +154,27 @@ app.get('/ReservacionesPendientes', (req, res) => {
 });
 
 // Aprobar Rechazar Reservaciones
-app.get('/ReservacionesPendientes', (req, res) => {
+app.post('/ReservacionesPendientes', (req, res) => {
     if(req.user){ 
         if(req.user.Es_Admin){
             if(req.body.type == 'aprobar'){
                 ReservacionesPendientes.aprobarReservacion(dbConnection, req.body.idReservacion, (result) => {
-                    res.send(result)
-                    return
+                    res.send(result);
                 });
             }
             else if(req.body.type == 'rechazar'){
                 ReservacionesPendientes.rechazarReservacion(dbConnection, req.body.idReservacion, (result) => {
                     res.send(result);
-                    return
                 });
+            }else{
+                res.send(null);
             }
+        }else{
+            res.send(null);
         }
+    }else{
+        res.send(null);
     }
-    res.send(null);
 });
 
 // Login
