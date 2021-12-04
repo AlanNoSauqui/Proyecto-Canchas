@@ -9,6 +9,9 @@ const passportFactory = require("./database/passportFactory.js");
 const session = require("express-session");
 passportFactory.setupPassport(passport, dbConnection);
 
+// ----------------------Mailgun---------------------------
+const mailgun = require('./database/mailgunFactory.js');
+const messager = mailgun.getTransporter();
 
 // -----------------------Express-----------------------
 const express = require('express');
@@ -40,6 +43,7 @@ const ErrorMessages = require("./classes/errorMessages.js");
 const CanchasClass = require("./classes/cancha.js");
 const ReservacionesClass = require("./classes/reservacion.js");
 const PeticionesClass = require("./classes/peticionReservacion.js");
+const ReservacionesPendientes = require("./classes/listaPorAprobar.js");
 
 // -----------------------Functions-----------------------
 
@@ -121,6 +125,8 @@ app.post('/Reservaciones/:idCancha', (req, res) =>{
                         res.send(resultado);
                     });
                 
+                }else{
+                    res.send(null);
                 }
             }
         });
@@ -128,6 +134,50 @@ app.post('/Reservaciones/:idCancha', (req, res) =>{
     else{
         res.send(null);
     }  
+});
+
+// Reservaciones Pendientes
+app.get('/ReservacionesPendientes', (req, res) => {
+    if(req.user){ 
+        if(req.user.Es_Admin){
+            ReservacionesPendientes.getReservacionesPendientes(dbConnection, (listaReservaciones) =>{
+                console.log(listaReservaciones);
+                res.send("Pagina en construccion");
+            });
+            //res.render('pages/reservationsPendientes', { pageType: "ReservacionesPendientes", userInfo: new UserClass.User(req.user) });
+        }
+        else{
+            res.redirect("/OnlyAdmin");
+        }
+    }
+    else{
+        req.session.redirectTo = '/ReservacionesPendientes';
+        res.redirect('/IniciarSesion');
+    } 
+});
+
+// Aprobar Rechazar Reservaciones
+app.post('/ReservacionesPendientes', (req, res) => {
+    if(req.user){ 
+        if(req.user.Es_Admin){
+            if(req.body.type == 'aprobar'){
+                ReservacionesPendientes.aprobarReservacion(dbConnection, messager,  req.body.idReservacion, (result) => {
+                    res.send(result);
+                });
+            }
+            else if(req.body.type == 'rechazar'){
+                ReservacionesPendientes.rechazarReservacion(dbConnection, messager, req.body.idReservacion, (result) => {
+                    res.send(result);
+                });
+            }else{
+                res.send(null);
+            }
+        }else{
+            res.send(null);
+        }
+    }else{
+        res.send(null);
+    }
 });
 
 // Login

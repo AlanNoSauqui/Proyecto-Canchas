@@ -1,3 +1,4 @@
 node_modules
 database/credentials.txt
 database/google_cred.json
+database/mailgunCredentials.json

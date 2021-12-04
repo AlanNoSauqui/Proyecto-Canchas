@@ -150,17 +150,11 @@ function sendData(fechaInicio, fechaFin, comentarios, valid){
         return value.json();
     })
     .then( (json) => {
-        if(valid){
-            json = {
-                exito: true,
-                message: "Datos de formulario correctos."
-            }
+        if(json.exito){
+            // Mostrar mensaje de exito
         }
         else{
-            json = {
-                exito: false,
-                message: "Datos de formulario incorrectos."
-            }
+            // Mostrar mensaje de error
         }
     });
 }

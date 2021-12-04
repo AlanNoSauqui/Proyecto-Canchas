@@ -35,6 +35,7 @@ function getReservaciones(idCancha){
         JOIN Usuarios usr on res.ID_Usuario = usr.ID
         WHERE ID_Cancha = ${idCancha} AND
         (Fecha_Inicio BETWEEN '${fechaInicio}' AND '${fechaFin}')
+        AND Aprobada = True
         ORDER BY Fecha_Inicio;`;
 
     return query;
@@ -58,7 +59,8 @@ function checarConflictos(fechaInicio, fechaFin, idCancha){
     FROM Reservaciones
     WHERE Fecha_Inicio < '${fechaFin}'
     AND Fecha_Fin > '${fechaInicio}'
-    AND ID_Cancha = ${idCancha};`;
+    AND ID_Cancha = ${idCancha}
+    AND Aprobada = True;`;
     return query;
 }
 
@@ -68,5 +70,49 @@ function getRecurrentes(idCancha){
     return query;
 }
 
+function getPendientes(){
+    fechaFin = new Date();
+    fechaFin = fechaFin.toISOString().slice(0, 19).replace('T', ' ');
+
+    let query = `
+    SELECT res.ID ID_Reservacion, res.Fecha_Inicio, res.Fecha_Fin, res.ID_Usuario, res.Comentarios, ch.Nombre Nombre_Cancha  FROM Reservaciones res
+JOIN Usuarios usr on usr.ID = res.ID_Usuario
+JOIN Canchas ch on ch.ID = res.ID_Cancha
+WHERE res.Aprobada = FALSE
+AND ('${fechaFin}' < Fecha_Fin)
+ORDER BY res.Fecha_Peticion;`;
+
+    return query;
+}
+
+function rechazarReservacion(idReservacion){
+    let query = `
+    DELETE FROM Reservaciones
+    WHERE ID = ${idReservacion};
+    `;
+
+    return query;
+}
+
+function aceptarReservacion(idReservacion){
+    let query = `
+    UPDATE Reservaciones
+SET
+    Aprobada = true
+WHERE ID = ${idReservacion};
+    `;
+
+    return query;
+}
+
+function getReservacionFromID(idReservacion){
+    let query = `
+    SELECT unix_timestamp(Fecha_inicio) Fecha_inicio, unix_timestamp(fecha_Fin) fecha_Fin, id_cancha, ID_Usuario FROM Reservaciones
+Where ID = ${idReservacion};`;
+    return query;
+}
+
+
 // exports
-module.exports = { getUserFromID, addUser, getCanchaFromID, getReservaciones, insertReservacion, checarConflictos, getRecurrentes};
+module.exports = { getUserFromID, addUser, getCanchaFromID, getReservaciones, insertReservacion, checarConflictos, getRecurrentes, getPendientes, rechazarReservacion, aceptarReservacion,
+getReservacionFromID};
