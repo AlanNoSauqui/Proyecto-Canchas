@@ -250,21 +250,38 @@ function recargar(){
         document.getElementById("canchaID").innerHTML = cancha;
 
     // Poner el carousel
+
+    const fotos = [
+        ['https://i.imgur.com/AuEJ9bN.jpg','https://i.imgur.com/sPdKWn1.jpg','https://i.imgur.com/tx979e8.jpg','https://i.imgur.com/4buLWTS.jpg','https://i.imgur.com/n4KE5nW.jpg'],             //Volleyball 
+        ['https://i.imgur.com/4f0JQpm.jpg','https://i.imgur.com/TSUpTGB.jpg','https://i.imgur.com/KZsHR5J.jpg','https://i.imgur.com/n4GKZdF.jpg','https://i.imgur.com/c7QJWma.jpg'],             //Basketball
+        ['https://i.imgur.com/bLqGU4t.jpg','https://i.imgur.com/4juw6Mw.jpg','https://i.imgur.com/LYA2QzD.jpg','https://i.imgur.com/7dQqpSm.jpg','https://i.imgur.com/GegsgMD.jpg'],             //Soccer
+        ['https://i.imgur.com/wqXn6N1.jpg','https://i.imgur.com/Fjg5J34.jpg','https://i.imgur.com/F8dpbpL.jpg','https://i.imgur.com/Vvzik8R.jpg','https://i.imgur.com/4IHMq1C.jpg'],             //Tennis
+        ['https://i.imgur.com/L8hHW4a.jpg','https://i.imgur.com/Jwxcy8I.jpg','https://i.imgur.com/UzTNahE.jpg','https://i.imgur.com/9miRFA3.jpg','https://i.imgur.com/5VY9GlH.jpg']              //Padel
+    ]
+
         let carousel = '';
         carousel += "<ol class='carousel-indicators'>";
         carousel += "   <li data-target='#carouselExampleIndicators' data-slide-to='0' class='active'></li>";
         carousel += "   <li data-target='#carouselExampleIndicators' data-slide-to='1'></li>";
         carousel += "   <li data-target='#carouselExampleIndicators' data-slide-to='2'></li>";
+        carousel += "   <li data-target='#carouselExampleIndicators' data-slide-to='3'></li>";
+        carousel += "   <li data-target='#carouselExampleIndicators' data-slide-to='4'></li>";
         carousel += "</ol>";
         carousel += "<div class='carousel-inner'>";
         carousel += "   <div class='carousel-item active'>";
-        carousel += "       <img class='d-block w-100' src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcivideportes.com.co%2Fwp-content%2Fuploads%2F2020%2F03%2Fcampos-deportivos-recubrimiento-sintetico-civideportes-768x576.png&f=1&nofb=1' alt='First slide'>";
+        carousel += "       <img class='d-block w-100' src="+fotos[0][0]+" alt='First slide'>";
         carousel += "   </div>";
         carousel += "   <div class='carousel-item'>";
-        carousel += "       <img class='d-block w-100' src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcivideportes.com.co%2Fwp-content%2Fuploads%2F2020%2F03%2Fcampos-deportivos-recubrimiento-sintetico-civideportes-768x576.png&f=1&nofb=1' alt='Second slide'>";
+        carousel += "       <img class='d-block w-100' src="+fotos[1][1]+" alt='Second slide'>";
         carousel += "   </div>";
         carousel += "   <div class='carousel-item'>";
-        carousel += "       <img class='d-block w-100' src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcivideportes.com.co%2Fwp-content%2Fuploads%2F2020%2F03%2Fcampos-deportivos-recubrimiento-sintetico-civideportes-768x576.png&f=1&nofb=1' alt='Third slide'>";
+        carousel += "       <img class='d-block w-100' src="+fotos[2][2]+" alt='Third slide'>";
+        carousel += "   </div>";
+        carousel += "   <div class='carousel-item'>";
+        carousel += "       <img class='d-block w-100' src="+fotos[3][3]+" alt='Fourth slide'>";
+        carousel += "   </div>";
+        carousel += "   <div class='carousel-item'>";
+        carousel += "       <img class='d-block w-100' src="+fotos[4][4]+" alt='Fifth slide'>";
         carousel += "   </div>";
         carousel += "</div>";
         carousel += "<a class='carousel-control-prev' href='#carouselExampleIndicators' role='button' data-slide='prev'>";

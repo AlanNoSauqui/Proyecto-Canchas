@@ -16,6 +16,7 @@ ul{
 	/* background-color: #5a0a22; */
 	text-align: center;
 	color: #B79257;
+	background-color: #ffffff;
 	font-family: serif;
 	font-size: 2rem;
 	display: flex;
@@ -45,7 +46,7 @@ ul{
 
 /* ------------------ Carousel ------------------ */
 .carousel{
-	width: 90%;
+	width: 50%;
 	margin-bottom: 1rem;
 	box-shadow:
 		-7px -7px 20px 0px #0002,
@@ -67,6 +68,7 @@ ul{
 	/* background-color: #5a0a22; */
 	text-align: center;
 	color: #B79257;
+	background-color: #ffffff;
 	font-family: serif;
 	font-size: 2rem;
 	display: flex;
