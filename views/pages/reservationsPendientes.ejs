@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Head -->
+    <%- include('./head'); %>
+
+    <!-- Titulo -->
+    <title>Reservaciones Pendientes</title>
+
+    <!-- CSS utilizado solo para Reservaciones Pendientes -->
+        <link rel="stylesheet" href="/views/css/pending_reservations_style.css">
+
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <%- include('./navbar'); %>
+    </header>
+
+    
+    <!-- Reservaciones Pendientes Inicio -->
+    <%  if(listReservations.reservaciones.length == 0) { %>
+        <!-- Banner cuando no hay info -->
+            <div class="BannerPrincipalNoInfo mx-auto">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <img class="mx-auto" src="/views/assets/UP_logo_2.png" alt="#" />
+                        </div>
+                        <div class="row">
+                            <h1>No hay Reservaciones Pendientes, regrese más tarde</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <%  }else{ %>
+        <!-- Banner -->
+            <div class="BannerPrincipal mx-auto">
+                <div class="row">
+                    <div class="col">
+                        <img src="/views/assets/UP_logo.png" alt="#" />
+                    </div>
+                </div>
+            </div>
+
+        <!-- Titulo -->
+            <div class="PrincipalTitle mx-auto">
+                <h1>Reservaciones Pendientes</h1>
+            </div>
+
+        <!-- Boxes de aceptacion o rechazo -->
+            <%  dimension = listReservations.reservaciones.length %>
+            <% for(let i=0; i<dimension; i++){ %>
+                <% const sixHourMiliseconds = 6*60*60*1000; %>
+                <% inicioActualizado = listReservations.reservaciones[i].Fecha_Inicio %>
+                <% inicioActualizado.setTime(inicioActualizado.getTime() - sixHourMiliseconds) %>
+
+                <% finActualizado = listReservations.reservaciones[i].Fecha_Fin %>
+                <% finActualizado.setTime(finActualizado.getTime() - sixHourMiliseconds) %>
+                
+                <div class="petitionBox container">
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="row Titulo">
+                                <div class="row">
+                                    ID_Reservacion:
+                                </div>
+                                <div class="row">
+                                    <%=  listReservations.reservaciones[i].ID_Reservacion %>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="row Subtitulo">
+                                    <li>Nombre de la cancha: </li>
+                                </div>
+                                <div class="row">
+                                    <%=  listReservations.reservaciones[i].Nombre_Cancha %>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="row Subtitulo">
+                                    <li>Fecha Inicio:  </li>
+                                </div>
+                                <div class="row">
+                                    <%= inicioActualizado %>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="row Subtitulo">
+                                    <li>Fecha Fin:  </li>
+                                </div>
+                                <div class="row">
+                                    <%=  finActualizado %>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="row Subtitulo">
+                                    <li>Comentarios: </li>
+                                </div>
+                                <div class="row">
+                                    <%=  listReservations.reservaciones[i].Comentarios %>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-4 my-auto">
+                            <div class="row">
+                                <button class="botonAceptar mx-auto" onclick='aprobarReservacion(<%=  listReservations.reservaciones[i].ID_Reservacion %>)'>Aceptar</button>
+                            </div>
+                            <div class="row">
+                                <button class="botonRechazar mx-auto" onclick='rechazarReservacion(<%=  listReservations.reservaciones[i].ID_Reservacion %>)'>Rechazar</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            <% } %>
+    <% } %>
+
+    <!-- Reservaciones Pendientes Final -->
+
+
+    <!-- JS Reservaciones Pendientes -->
+    <script src="/views/js/reservaciones_functions.js"> </script>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <%- include('./footer'); %>
+    </footer>
+
+</body>
+</html>

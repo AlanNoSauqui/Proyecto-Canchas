@@ -1,0 +1,177 @@
+/* ----------------Banners---------------- */
+.BannerPrincipalNoInfo {
+    background: url(/views/assets/Pending_Reservations/UPBanner.jpg);
+    background-repeat: no-repeat;
+    min-height: 900px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-size: 100% 100%;
+
+}
+
+.BannerPrincipalNoInfo img{
+    width: 300px;
+    text-align: center;
+}
+
+.BannerPrincipalNoInfo h1{
+    text-align: center;
+    font-size: 25px;
+    font-family: serif;
+    color: #ffffff;
+}
+
+.BannerPrincipal {
+    background: url(/views/assets/Pending_Reservations/UPBanner.jpg);
+    background-repeat: no-repeat;
+    min-height: 400px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-size: 100% 100%;
+
+    margin-bottom: 60px;
+}
+
+
+
+
+
+
+
+/* ----------------Titulo Principal---------------- */
+
+.PrincipalTitle {
+    margin-bottom: 40px;
+}
+
+.PrincipalTitle h1{
+    text-align: center;
+    font-size: 30px;
+    font-family: serif;
+    color: #000000;
+}
+
+
+
+
+
+
+
+
+/* ----------------Petition Box---------------- */
+.petitionBox{
+    font-size: 15px;
+    background: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    box-shadow:
+        -7px -7px 20px 0px #0002,
+        -4px -4px 5px 0px #0002,
+        7px 7px 20px 0px #0002,
+        4px 4px 5px 0px #0001,
+        inset 0px 0px 0px 0px #0002,
+        inset 0px 0px 0px 0px #0001,
+        inset 0px 0px 0px 0px #0002,        inset 0px 0px 0px 0px #0001;
+}
+
+.petitionBox .row{
+    margin:0;
+    padding:0;
+    margin-right: 10px;
+}
+
+.petitionBox .col-4{
+    margin:0;
+    padding:10px;
+}
+
+.petitionBox .col-8{
+    margin:0;
+    padding:0;
+}
+
+
+.Titulo{
+    font-size: 20px;
+    color: black;
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
+
+.Titulo::after{
+    content: "";
+	left: 10px;
+	width: 94%;
+	height: 1px;
+	background: lightgray;
+	z-index: 1;
+}
+
+.Subtitulo{
+    color: black;
+    font-weight:bold;
+}
+
+
+button{
+    border:none;
+}
+
+button:hover{
+    border:none;
+}
+
+button:active{
+    border:none;
+}
+
+.botonAceptar {
+    font-size: 17px;
+    background-color:  #85bd6d;
+    color: rgb(255, 255, 255);
+    padding: 13px 0px;
+    width: 100%;
+    max-width: 190px;
+    text-align: center;
+    display: inline-block;
+    transition: ease-in all 0.5s;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.botonAceptar:hover {
+    background: #264819;
+    color: #fff;
+    transition: ease-in all 0.5s;
+    border-radius: 25px;
+}
+
+
+
+.botonRechazar {
+    font-size: 17px;
+    background-color:  #dd928f;
+    color: rgb(255, 255, 255);
+    padding: 13px 0px;
+    width: 100%;
+    max-width: 190px;
+    text-align: center;
+    display: inline-block;
+    transition: ease-in all 0.5s;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.botonRechazar:hover {
+    background: #6f2f21;
+    color: #fff;
+    transition: ease-in all 0.5s;
+    border-radius: 25px;
+}
