@@ -151,10 +151,10 @@ function sendData(fechaInicio, fechaFin, comentarios, valid){
     })
     .then( (json) => {
         if(json.exito){
-            // Mostrar mensaje de exito
+            alert('Se ha mandado su solicitud de reservación de manera exitosa. Pronto le llegará un correo confirmando o rechazando su petición de reservación.');
         }
         else{
-            // Mostrar mensaje de error
+            alert('Se ha rechazado su solicitud de reservación, por favor verifique que no exista otra reservación en el mismo horario que usted solicitó o póngase en conctacto con el departamento de Deportes.')
         }
     });
 }

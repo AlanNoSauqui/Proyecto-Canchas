@@ -142,9 +142,8 @@ app.get('/ReservacionesPendientes', (req, res) => {
         if(req.user.Es_Admin){
             ReservacionesPendientes.getReservacionesPendientes(dbConnection, (listaReservaciones) =>{
                 console.log(listaReservaciones);
-                res.send("Pagina en construccion");
+                res.render('pages/reservationsPendientes', { pageType: "ReservacionesPendientes", listReservations: listaReservaciones , userInfo: new UserClass.User(req.user) });
             });
-            //res.render('pages/reservationsPendientes', { pageType: "ReservacionesPendientes", userInfo: new UserClass.User(req.user) });
         }
         else{
             res.redirect("/OnlyAdmin");

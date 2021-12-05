@@ -10,10 +10,10 @@ function aprobarReservacion(idReservacion){
     })
     .then( (json) => {
         if(json.exito){
-            // Mostrar mensaje de exito
+            alert('Se ha aprobado esta reservación de manera exitosa.');
         }
         else{
-            // Mostrar mensaje de error
+            alert('Error al aprobar.');
         }
     });
 }
@@ -29,10 +29,10 @@ function rechazarReservacion(idReservacion){
     })
     .then( (json) => {
         if(json.exito){
-            // Mostrar mensaje de exito
+            alert('Se ha rechazado esta reservación de manera exitosa.');
         }
         else{
-            // Mostrar mensaje de error
+            alert('Error al rechazar.');
         }
     });
 }
