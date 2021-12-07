@@ -1,7 +1,6 @@
 /* ----------------Banners---------------- */
 .BannerPrincipalNoInfo {
-    background: url(/views/assets/Pending_Reservations/UPBanner.jpg);
-    background-repeat: no-repeat;
+    background-color: #1d2b64;
     min-height: 900px;
     width: auto;
     display: flex;
@@ -13,7 +12,7 @@
 }
 
 .BannerPrincipalNoInfo img{
-    width: 300px;
+    width: 50%;
     text-align: center;
 }
 
@@ -22,6 +21,7 @@
     font-size: 25px;
     font-family: serif;
     color: #ffffff;
+    width: 50%;
 }
 
 .BannerPrincipal {
@@ -36,6 +36,10 @@
     background-size: 100% 100%;
 
     margin-bottom: 60px;
+}
+
+.BannerPrincipal img{
+    width: 65%;
 }
 
 
