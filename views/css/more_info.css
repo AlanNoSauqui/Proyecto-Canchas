@@ -1,39 +1,119 @@
+.row{
+    width:100%;
+    padding: 0;
+    margin:0;
+}
+
 .campus{
     width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     text-align: center;
 }
-.campusImag{
-    height: 20rem;
-    width: 90%;
+
+.imageCampusContainer{
+    height: auto;
+    width: 100%;
     margin: 0 auto;
     margin-top: 1rem;
     margin-bottom: 5rem;
-    background-color: indianred;
-    background-image: url('/views/assets/More_Info/campus_image_1.jpg');
-    background-size: cover;
+   
+}
+
+.imageCampusContainer img{
+    width: 60%;
+    height: auto;
+    border-radius: 20px;
+    border: 5x solid #e6e6e6;
+    box-shadow: 0 70px 40px -20px rgba(0, 0, 0, 0.2);
+}
+
+.imageCampusContainer img:hover{
+    width: 60%;
+    height: auto;
     transform: perspective(750px) translate3d(0px, 0px, -100px) rotateX(27deg) scale(0.9, 0.9) rotatez(10deg);
     border-radius: 20px;
     border: 5x solid #e6e6e6;
     box-shadow: 0 70px 40px -20px rgba(0, 0, 0, 0.2);
     transition: 0.4s ease-in-out transform;
 }
+
+
 .h5t{
-    font-size: 2rem;
-    margin-top: 2rem;
+    width: 100%;
+    height: auto;
+    font-family: serif;
     margin-bottom: 2rem;
     font-weight: bold;
-}
-.section2{
-    width: 70%;
-    margin-bottom: 5rem;
-    background-color: #B79257;
     text-align: center;
+
+    padding: 3rem 3rem;
+
+    background-image: url('/views/assets/More_Info/Fondo.png');
 }
+
+.h5t h1{
+    color:#fff;
+    font-size: 1.8rem;
+}
+
+
+.section2{
+    width: 60%;
+    margin-bottom: 5rem;
+    text-align: center;
+    border-radius: 20px;
+    padding: 1rem 1rem;
+    box-shadow: 1px 9px 35px 0px rgba(0,0,0,0.81);
+    -webkit-box-shadow: 1px 9px 35px 0px rgba(0,0,0,0.81);
+    -moz-box-shadow: 1px 9px 35px 0px rgba(0,0,0,0.81);
+    background-image: url('/views/assets/More_Info/Fondo2.jpg');
+}
+
+@media only screen and (max-width: 767px) {
+    .section2{
+        width: 80%;
+        margin-bottom: 5rem;
+        text-align: center;
+        border-radius: 20px;
+        padding: 1rem 1rem;
+        box-shadow: 1px 9px 35px 0px rgba(0,0,0,0.81);
+        -webkit-box-shadow: 1px 9px 35px 0px rgba(0,0,0,0.81);
+        -moz-box-shadow: 1px 9px 35px 0px rgba(0,0,0,0.81);
+        background-image: url('/views/assets/More_Info/Fondo2.jpg');
+    }
+}
+
+
+.section2 h1{
+    color:#fff;
+    font-size: 30px;
+    font-family: serif;
+}
+
+.section2 .row{
+    height: auto;
+}
+
 .square{
     background-color: #fff;
+    padding: 10px 10px;
     max-width: 15rem;
-    height: 15rem;
+    height: 90%;
     margin: 1rem 1rem 1rem 1rem;
+    border-radius: 10px;
+
+    box-shadow: 1px 10px 22px -3px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 10px 22px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 10px 22px -3px rgba(0,0,0,0.75);
+    
 }
+
+.square:hover{
+    background-color: #153434 ;
+    color: #fff;
+    transition: ease-in all 0.5s;
+    border-radius: 25px
+}
+
