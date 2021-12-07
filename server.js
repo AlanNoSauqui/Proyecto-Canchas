@@ -74,7 +74,7 @@ app.get('/Inicio', (req, res) => {
 // Reservaciones
 app.get('/Reservaciones', (req, res) => {
     if(req.user){ 
-        res.render('pages/reservations', { pageType: "Reservaciones", userInfo: new UserClass.User(req.user) });
+        res.redirect('/Reservaciones/1');
     }
     else{
         req.session.redirectTo = '/Reservaciones';
