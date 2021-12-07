@@ -9,10 +9,16 @@
 
     <!-- CSS utilizado solo para Mas informacion -->
     <link rel="stylesheet" href="/views/css/more_info.css" type="text/css">
-
+    <link rel="stylesheet" href="/views/css/loader.css">
 
 </head>
 <body>
+    <!-- Preloader  -->
+	<div class="loader_bg">
+		<div class="loader"><img src="/views/assets/Home/Loader04.gif" alt="#"/></div>
+	 </div>
+  	<!-- end Preloader -->
+
     <!-- Navbar -->
     <header>
         <%- include('./navbar'); %>
@@ -27,70 +33,85 @@
             
         </div>
     </section>
-    <section class="section2">
-        <div class="bdy">
-            <div class="square">
-                <p><b>Baloncesto</b><br/>
-                Uso de la cancha<br/><br/>
-                Equipo disponible:<br/>
-                -Platos/Conos<br/>
-                -Balones<br/><br/>
-                Horarios:<br/>
-                9:00-19:00
-                </p>
+
+    <div class="section2 mx-auto">
+        <div class="row mx-auto">
+            <div class="col ">
+                <div class="square mx-auto">
+                    <p><b>Baloncesto</b><br/>
+                    Uso de la cancha<br/><br/>
+                    Equipo disponible:<br/>
+                    -Platos/Conos<br/>
+                    -Balones<br/><br/>
+                    Horarios:<br/>
+                    9:00-19:00
+                    </p>
+                </div>
             </div>
-            <div class="square">
-                <p><b>Futbol</b><br/>
-                Uso de la cancha<br/><br/>
-                Equipo disponible:<br/>
-                -Platos/Conos<br/>
-                -Balones<br/><br/>
-                Horarios:<br/>
-                9:00-19:00
-                </p>
+            <div class="col">
+                <div class="square mx-auto">
+                    <p><b>Futbol</b><br/>
+                    Uso de la cancha<br/><br/>
+                    Equipo disponible:<br/>
+                    -Platos/Conos<br/>
+                    -Balones<br/><br/>
+                    Horarios:<br/>
+                    9:00-19:00
+                    </p>
+                </div>
             </div>
-            <div class="square">
-                <p><b>Padel</b><br/>
-                Uso de la cancha<br/><br/>
-                Equipo disponible:<br/>
-                -Pelotas<br/>
-                -Raquetas de padel<br/><br/>
-                Horarios:<br/>
-                9:00-19:00
-                </p>
+            <div class="col">
+                <div class="square mx-auto">
+                    <p><b>Padel</b><br/>
+                    Uso de la cancha<br/><br/>
+                    Equipo disponible:<br/>
+                    -Pelotas<br/>
+                    -Raquetas de padel<br/><br/>
+                    Horarios:<br/>
+                    9:00-19:00
+                    </p>
+                </div>
             </div>
-            <div class="square">
-                <p><b>Tenis</b><br/>
-                Uso de la cancha<br/><br/>
-                Equipo disponible:<br/>
-                -Pelotas<br/>
-                -Raquetas de tenis<br/><br/>
-                Horarios:<br/>
-                9:00-19:00
-                </p>
+        </div>
+        <div class="row mx-auto">
+            <div class="col">
+                <div class="square mx-auto">
+                    <p><b>Tenis</b><br/>
+                    Uso de la cancha<br/><br/>
+                    Equipo disponible:<br/>
+                    -Pelotas<br/>
+                    -Raquetas de tenis<br/><br/>
+                    Horarios:<br/>
+                    9:00-19:00
+                    </p>
+                </div>
+            </div>  
+            <div class="col">
+                <div class="square mx-auto">
+                    <p><b>Voleybol</b><br/>
+                    Uso de la cancha<br/><br/>
+                    Equipo disponible:<br/>
+                    -Red<br/>
+                    -Balones<br/><br/>
+                    Horarios:<br/>
+                    9:00-19:00
+                    </p>
+                </div>
             </div>
-            <div class="square">
-                <p><b>Voleybol</b><br/>
-                Uso de la cancha<br/><br/>
-                Equipo disponible:<br/>
-                -Red<br/>
-                -Balones<br/><br/>
-                Horarios:<br/>
-                9:00-19:00
-                </p>
+            <div class="col">
+                <div class="square mx-auto">
+                    <p><b>Carpa</b><br/>
+                    Espacio de usos multiples<br/><br/>
+                    Equipo disponible:<br/>
+                    -Instrumentos<br/>
+                    -Pesas<br/><br/>
+                    Horarios:<br/>
+                    9:00-19:00
+                    </p>
+                </div>
             </div>
-            <div class="square">
-                <p><b>Carpa</b><br/>
-                Espacio de usos multiples<br/><br/>
-                Equipo disponible:<br/>
-                -Instrumentos<br/>
-                -Pesas<br/><br/>
-                Horarios:<br/>
-                9:00-19:00
-                </p>
-            </div>
-          </div>
-    </section>
+        </div>
+    </div>
     <!-- Mas informacion Final -->
 
 
@@ -100,5 +121,8 @@
         <%- include('./footer'); %>
     </footer>
    <script src="/views/js/more_info.js"></script>
+   <script src="/views/js/home_jquery.min.js"></script>
+    <script src="/views/js/loader_functions.js"></script>
+   
 </body>
 </html>

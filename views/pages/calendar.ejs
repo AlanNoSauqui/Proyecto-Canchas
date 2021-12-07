@@ -10,6 +10,7 @@
 
 		<!-- CSS utilizado solo para Calendario -->
 		<link rel="stylesheet" href="/views/css/calendar_style.css">
+		<link rel="stylesheet" href="/views/css/loader.css">
 		<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 
 		<!-- JS utilizado solo para Calendario -->
@@ -19,6 +20,12 @@
 </head>
 
 <body>
+	<!-- Preloader  -->
+	<div class="loader_bg">
+		<div class="loader"><img src="/views/assets/Home/Loader04.gif" alt="#"/></div>
+	 </div>
+  	<!-- end Preloader -->
+
 	<!-- Navbar -->
 	<header>
 		<%- include('./navbar'); %>
@@ -65,6 +72,8 @@
 	<!-- JS Calendario -->
 	<script src="/views/js/calendar_functions.js" reservaciones='<%- JSON.stringify(reservaciones) %>'
 		cancha='<%- JSON.stringify(cancha) %>'> </script>
+	<script src="/views/js/home_jquery.min.js"></script>
+	<script src="/views/js/loader_functions.js"></script>
 
 	<!-- Calendario Final -->
 

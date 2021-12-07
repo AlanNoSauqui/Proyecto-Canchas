@@ -9,9 +9,16 @@
 
     <!-- CSS utilizado solo para Reservaciones Pendientes -->
         <link rel="stylesheet" href="/views/css/pending_reservations_style.css">
+        <link rel="stylesheet" href="/views/css/loader.css">
 
 </head>
 <body>
+    <!-- Preloader  -->
+	<div class="loader_bg">
+		<div class="loader"><img src="/views/assets/Home/Loader04.gif" alt="#"/></div>
+	 </div>
+  	<!-- end Preloader -->
+
     <!-- Navbar -->
     <header>
         <%- include('./navbar'); %>
@@ -129,7 +136,8 @@
 
     <!-- JS Reservaciones Pendientes -->
     <script src="/views/js/reservaciones_functions.js"> </script>
-
+    <script src="/views/js/home_jquery.min.js"></script>
+	<script src="/views/js/loader_functions.js"></script>
 
 
     <!-- Footer -->
