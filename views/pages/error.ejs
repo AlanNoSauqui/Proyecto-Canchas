@@ -7,11 +7,18 @@
     <!-- Titulo -->
     <title>Inicio</title>
 
-    <!-- CSS utilizado solo para Inicio -->
+    <!-- CSS utilizado solo para Error -->
     <link rel="stylesheet" href="/views/css/error_style.css" type="text/css">
+    <link rel="stylesheet" href="/views/css/loader.css">
 
 </head>
 <body>
+    <!-- Preloader  -->
+	<div class="loader_bg">
+		<div class="loader"><img src="/views/assets/Home/Loader04.gif" alt="#"/></div>
+	 </div>
+  	<!-- end Preloader -->
+
     <!-- Navbar -->
     <header>
         <%- include('./navbar'); %>
@@ -35,6 +42,10 @@
             </div>
         </div>
     </div>
+
+    <script src="/views/js/home_jquery.min.js"></script>
+	<script src="/views/js/loader_functions.js"></script>
+
     <!-- Error Final -->
 
     <!-- Footer -->

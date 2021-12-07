@@ -9,10 +9,17 @@
 
     <!-- CSS utilizado solo para Como Reservar -->
     <link rel="stylesheet" href="/views/css/how_to_reserve.css" type="text/css">
+    <link rel="stylesheet" href="/views/css/loader.css">
     
 
 </head>
 <body>
+    <!-- Preloader  -->
+	<div class="loader_bg">
+		<div class="loader"><img src="/views/assets/Home/Loader04.gif" alt="#"/></div>
+	 </div>
+  	<!-- end Preloader -->
+
     <!-- Navbar -->
     <header>
         <%- include('./navbar'); %>
@@ -94,6 +101,8 @@
     </footer>
 
     <script src="/views/js/howToReserve.js"></script>
+    <script src="/views/js/home_jquery.min.js"></script>
+	<script src="/views/js/loader_functions.js"></script>
 
 </body>
 </html>

@@ -1,15 +1,15 @@
 .campus{
+    width: 100%;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 .campusImag{
-    height: 50vh;
-    width: 50vw;
-    max-height: 50vw;
-    min-width: 50vh;
+    height: 20rem;
+    width: 90%;
     margin: 0 auto;
-    margin-top: 3vh;
-    margin-bottom: 11vh;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
     background-color: indianred;
     background-image: url('/views/assets/More_Info/campus_image_1.jpg');
     background-size: cover;
@@ -21,36 +21,19 @@
 }
 .h5t{
     font-size: 2rem;
-    margin: 0 auto;
-    margin-bottom: 3vh;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     font-weight: bold;
 }
 .section2{
+    width: 70%;
+    margin-bottom: 5rem;
     background-color: #B79257;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
-.bdy{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    text-align: center;
 }
 .square{
     background-color: #fff;
-    display: flex;
-    flex-wrap: wrap;
-    width: 25vw;
-    min-width: 30vh;
-    min-height: 40vw;
-    margin-top: 3vh;
-    margin-bottom: 3vh;
-    margin-right: 3vw;
-    margin-left: 3vw;
-    font-size: calc(1rem + 1vw);
-    padding-left: 1vw;
-    padding-top: 2vh;
-    border-radius: 5%;
+    max-width: 15rem;
+    height: 15rem;
+    margin: 1rem 1rem 1rem 1rem;
 }

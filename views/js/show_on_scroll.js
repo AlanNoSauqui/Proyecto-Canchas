@@ -1,13 +1,3 @@
-/* ------------------Preloader------------------*/
-
-setTimeout(function () {
-	$('.loader_bg').fadeToggle();
-}, 1300);
-
-
-
-
-
 /* ------------------Animaciones por Scroll------------------*/
 
 // Detecta los frames de animacion
